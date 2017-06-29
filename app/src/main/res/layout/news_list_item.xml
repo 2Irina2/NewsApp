@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/article_title"
+        style="@style/article_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tool:text="This is a very very long placeholder for a long article name" />
+
+    <TextView
+        android:id="@+id/article_section"
+        style="@style/article_section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/article_title"
+        tool:text="Section" />
+
+    <TextView
+        android:id="@+id/article_author"
+        style="@style/article_others"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/article_section"
+        tool:text="Author"/>
+
+    <TextView
+        android:id="@+id/article_date"
+        style="@style/article_others"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/article_section"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        tool:text="Date"/>
+</RelativeLayout>
