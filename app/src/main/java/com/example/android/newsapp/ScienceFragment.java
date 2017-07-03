@@ -1,14 +1,13 @@
 package com.example.android.newsapp;
 
 import android.content.Context;
-import android.support.v4.content.Loader;
+import android.content.Loader;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.app.LoaderManager;
+import android.app.LoaderManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,9 +38,8 @@ public class ScienceFragment extends Fragment implements LoaderManager.LoaderCal
         listView.setAdapter(newsAdapter);
 
         if(hasInternetAccess()){
-            LoaderManager loaderManager = getLoaderManager();
 
-            loaderManager.initLoader(NEWS_LOADER_ID, null, this);
+            getLoaderManager().initLoader(NEWS_LOADER_ID, null, ScienceFragment.class.this);
         }
         else{
             //Do stuff later
@@ -55,7 +53,7 @@ public class ScienceFragment extends Fragment implements LoaderManager.LoaderCal
 
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
-        return new NewsLoader(this, requestUrl);
+
     }
 
     @Override
