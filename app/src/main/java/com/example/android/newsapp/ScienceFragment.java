@@ -7,7 +7,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.app.LoaderManager;
+import android.support.v4.app.LoaderManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +39,7 @@ public class ScienceFragment extends Fragment implements LoaderManager.LoaderCal
 
         if(hasInternetAccess()){
 
-            getLoaderManager().initLoader(NEWS_LOADER_ID, null, ScienceFragment.class.this);
+            getLoaderManager().initLoader(NEWS_LOADER_ID, null, ScienceFragment.this);
         }
         else{
             //Do stuff later
@@ -52,12 +52,12 @@ public class ScienceFragment extends Fragment implements LoaderManager.LoaderCal
     private static final int NEWS_LOADER_ID = 1;
 
     @Override
-    public Loader<List<News>> onCreateLoader(int id, Bundle args) {
-
+    public android.support.v4.content.Loader<List<News>> onCreateLoader(int id, Bundle args) {
+        return new NewsLoader(this, requestUrl);
     }
 
     @Override
-    public void onLoadFinished(Loader<List<News>> loader, List<News> data) {
+    public void onLoadFinished(android.support.v4.content.Loader<List<News>> loader, List<News> data) {
         newsAdapter.clear();
 
         if(data != null && !data.isEmpty()){
@@ -66,7 +66,7 @@ public class ScienceFragment extends Fragment implements LoaderManager.LoaderCal
     }
 
     @Override
-    public void onLoaderReset(Loader<List<News>> loader) {
+    public void onLoaderReset(android.support.v4.content.Loader<List<News>> loader) {
         newsAdapter.clear();
     }
 
