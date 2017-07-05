@@ -22,14 +22,14 @@ import java.util.List;
 
 
 
-public class PoliticsFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<News>>{
+public class TechnologyFragment extends Fragment implements LoaderManager.LoaderCallbacks<List<News>>{
 
-    public static String requestUrl = "http://content.guardianapis.com/search?section=politics&api-key=test";
+    public static String requestUrl = "http://content.guardianapis.com/search?section=technology&api-key=test";
 
     private ProgressBar progressBar = null;
     private TextView emptyTextView = null;
 
-    public PoliticsFragment(){
+    public TechnologyFragment(){
         //Required emply construction
     }
 
@@ -62,7 +62,7 @@ public class PoliticsFragment extends Fragment implements LoaderManager.LoaderCa
 
         if(hasInternetAccess()){
 
-            getLoaderManager().initLoader(NEWS_LOADER_ID, null, PoliticsFragment.this);
+            getLoaderManager().initLoader(NEWS_LOADER_ID, null, TechnologyFragment.this);
 
         }
         else{
